@@ -5,7 +5,7 @@ require('dotenv').config();
 const usersRoutes= require('./routes/users')
 const recipesRoutes= require('./routes/recipes')
 const groupsRoutes= require('./routes/groups')
-//const PORT= process.env.PORT || 3000
+const PORT= process.env.PORT || 3000
 const {Pool}= require({pg})
 
 app.use(cors())
@@ -19,10 +19,7 @@ app.get('/',(req,res)=>{
     res.send('Backend funcionando')
 })
 
-const pool= new pool({
-    connectionString: process.env.DATABASE_URL,
-    ssl: process.env.NODE_ENV==='production'
-})
+
 
 /* const pool = new Pool({
   user: "postgres",
@@ -32,8 +29,8 @@ const pool= new pool({
   port: 5432,
 }); */
 
-module.exports= pool
 
-/* app.listen(PORT,()=>{
+
+ app.listen(PORT,()=>{
     console.log(`Corriendo en el puerto http://localhost:${PORT}`)
-}) */
+}) 
