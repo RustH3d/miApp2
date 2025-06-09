@@ -8,9 +8,21 @@ const { Pool } = require("pg");
   port: 5432,
 }); */
 
-const pool= new pool({
+/* const pool= new pool({
     connectionString: process.env.DATABASE_URL,
     ssl: process.env.NODE_ENV==='production'
-})
+}) */
+
+
+const { Pool } = require("pg");
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // requerido para Supabase
+  },
+});
+
+
 
 module.exports = pool;
