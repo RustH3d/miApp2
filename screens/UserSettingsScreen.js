@@ -23,7 +23,7 @@ export default function UserSettingsScreen({ route, navigation }) {
     try {
       const body = password ? { name, email, password } : { name, email };
 
-      const response = await fetch(`http://10.125.217.144:3000/users/${user.id}`, {
+      const response = await fetch(`https://miapp2-production.up.railway.app/users/${user.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -52,7 +52,7 @@ export default function UserSettingsScreen({ route, navigation }) {
           style: 'destructive',
           onPress: async () => {
             try {
-              await fetch(`http://10.125.217.144:3000/users/${user.id}`, {
+              await fetch(`https://miapp2-production.up.railway.app/users/${user.id}`, {
                 method: 'DELETE',
               });
               Alert.alert('Cuenta eliminada');

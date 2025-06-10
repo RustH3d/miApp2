@@ -15,7 +15,7 @@ export default function RecipesListScreen({ navigation }) {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await fetch('http://10.125.217.144:3000/recipes');
+        const response = await fetch('https://miapp2-production.up.railway.app/recipes');
         const data = await response.json();
         setRecipes(data);
       } catch (error) {

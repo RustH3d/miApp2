@@ -17,7 +17,7 @@ export default function UserRecipesDetailsScreen({ route, navigation }) {
   useEffect(() => {
     const fetchUserRecipes = async () => {
       try {
-        const response = await fetch(`http://10.125.217.144:3000/recipes/user/${userId}`);
+        const response = await fetch(`https://miapp2-production.up.railway.app/recipes/user/${userId}`);
         if (!response.ok) throw new Error('Error en la respuesta del servidor');
         const data = await response.json();
         setRecipes(data);
@@ -34,7 +34,7 @@ export default function UserRecipesDetailsScreen({ route, navigation }) {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://10.125.217.144:3000/recipes/${id}`, {
+      const response = await fetch(`https://miapp2-production.up.railway.app/recipes/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) throw new Error('Error al eliminar');

@@ -14,7 +14,7 @@ export default function RegisterScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const API_URL = 'http://10.125.217.144:3000/users/register'; // Asegúrate que sea tu IP local + endpoint correcto
+  const API_URL = 'https://miapp2-production.up.railway.app/users/register'; // Asegúrate que sea tu IP local + endpoint correcto
 
   const handleRegister = async () => {
     if (!email || !password) {

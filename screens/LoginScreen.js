@@ -15,7 +15,7 @@ export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
-  const API_URL = 'http://10.125.217.144:3000/users/login'; // ← Ruta corregida
+  const API_URL = 'https://miapp2-production.up.railway.app/users/login'; // ← Ruta corregida
 
   const handleLogin = async () => {
     if (!email || !password) {

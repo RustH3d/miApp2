@@ -21,7 +21,7 @@ export default function GroupManagerScreen({ route, navigation }) {
 
   const fetchGroups = async () => {
     try {
-      const res = await fetch(`http://10.125.217.144:3000/groups/user/${userId}`);
+      const res = await fetch(`https://miapp2-production.up.railway.app/groups/user/${userId}`);
       const data = await res.json();
       setGroups(data);
     } catch (err) {
@@ -41,8 +41,8 @@ export default function GroupManagerScreen({ route, navigation }) {
     try {
       const method = selectedGroupId ? 'PUT' : 'POST';
       const url = selectedGroupId
-        ? `http://10.125.217.144:3000/groups/${selectedGroupId}`
-        : 'http://10.125.217.144:3000/groups';
+        ? `https://miapp2-production.up.railway.app/groups/${selectedGroupId}`
+        : 'https://miapp2-production.up.railway.app/groups';
 
       const res = await fetch(url, {
         method,
@@ -68,7 +68,7 @@ export default function GroupManagerScreen({ route, navigation }) {
         text: 'Eliminar',
         onPress: async () => {
           try {
-            await fetch(`http://10.125.217.144:3000/groups/${id}`, {
+            await fetch(`https://miapp2-production.up.railway.app/groups/${id}`, {
               method: 'DELETE',
             });
             fetchGroups();

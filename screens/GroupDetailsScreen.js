@@ -17,7 +17,7 @@ export default function GroupDetailsScreen({ route, navigation }) {
   const fetchGroupRecipes = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`http://10.125.217.144:3000/groups/${groupId}/recipes`);
+      const res = await fetch(`https://miapp2-production.up.railway.app/groups/${groupId}/recipes`);
       if (!res.ok) throw new Error('Error en la respuesta');
       const data = await res.json();
       setRecipes(data);

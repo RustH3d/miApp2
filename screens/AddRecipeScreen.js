@@ -27,7 +27,7 @@ export default function AddRecipeScreen({ route, navigation }) {
     const stepsArray = steps.split(',').map((s) => s.trim());
 
     try {
-      const response = await fetch('http://10.125.217.144:3000/recipes', {
+      const response = await fetch('https://miapp2-production.up.railway.app/recipes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

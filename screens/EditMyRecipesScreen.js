@@ -24,7 +24,7 @@ export default function EditRecipeScreen({ route, navigation }) {
     }
 
     try {
-      const response = await fetch(`http://10.125.217.144:3000/recipes/${recipe.id}`, {
+      const response = await fetch(`https://miapp2-production.up.railway.app/recipes/${recipe.id}}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

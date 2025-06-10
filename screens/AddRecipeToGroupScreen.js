@@ -19,7 +19,7 @@ export default function AddRecipeToGroupScreen({ route, navigation }) {
   const fetchRecipes = async () => {
     setLoading(true);
     try {
-      const response = await fetch('http://10.125.217.144:3000/recipes');
+      const response = await fetch('"https://miapp2-production.up.railway.app/recipes"');
       if (!response.ok) throw new Error('Error en la respuesta del servidor');
       const data = await response.json();
       setRecipes(data);
@@ -50,7 +50,7 @@ export default function AddRecipeToGroupScreen({ route, navigation }) {
 
     setSaving(true);
     try {
-      const res = await fetch(`http://10.125.217.144:3000/groups/${groupId}/recipes`, {
+      const res = await fetch(`https://miapp2-production.up.railway.app/groups/${groupId}/recipes`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ recipeIds: selectedRecipeIds }),
