@@ -6,7 +6,8 @@ const usersRoutes= require('./routes/users')
 const recipesRoutes= require('./routes/recipes')
 const groupsRoutes= require('./routes/groups')
 const PORT= process.env.PORT || 3000
-const {Pool}= require({pg})
+const {Pool}= require('pg')
+const pg = require('pg');
 
 app.use(cors())
 app.use(express.json())
