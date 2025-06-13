@@ -1,5 +1,5 @@
 const pg = require('pg');
-const { Pool } = require("pg");
+/* const { Pool } = require("pg");
 
 
  const pool = new Pool({
@@ -9,12 +9,12 @@ const { Pool } = require("pg");
   //password: "bionicle2006",
   password: "L1nk3d",
   port: 5432,
-}); 
+});  */
 
-/* const pool= new pool({
+ const pool= new pool({
     connectionString: process.env.DATABASE_URL,
     ssl: process.env.NODE_ENV==='production'
-}) */
+}) 
 
 
 
