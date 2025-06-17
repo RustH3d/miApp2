@@ -18,13 +18,15 @@ export default function MyRecipesDetails({ route, navigation }) {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await fetch(`https://miapp2-production.up.railway.app/recipes/${recipeId}`);
+        // const response = await fetch(`http://10.125.217.144:3000/recipes/${recipeId}`);
+        const response = await fetch(`https://recets-production.up.railway.app/recipes/${recipeId}`);
         if (!response.ok) throw new Error('Error cargando receta');
         const data = await response.json();
         setRecipe(data);
 
         if (data.user_id) {
-          const userRes = await fetch(`https://miapp2-production.up.railway.app/users/${data.user_id}`);
+          // const userRes = await fetch(`http://10.125.217.144:3000/users/${data.user_id}`);
+          const userRes = await fetch(`https://recets-production.up.railway.app/users/${data.user_id}`);
           if (userRes.ok) {
             const userData = await userRes.json();
             setUser(userData);

@@ -24,7 +24,9 @@ export default function EditRecipeScreen({ route, navigation }) {
     }
 
     try {
-      const response = await fetch(`https://miapp2-production.up.railway.app/recipes/${recipe.id}}`, {
+     // const response = await fetch(`http://10.125.217.144:3000/recipes/${recipe.id}`, {
+     const response = await fetch(`https://recets-production.up.railway.app/recipes/${recipe.id}`, {
+
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -58,14 +60,14 @@ export default function EditRecipeScreen({ route, navigation }) {
         value={title}
         onChangeText={setTitle}
         placeholder="Título"
-        placeholderTextColor="#aaa"
+        pplaceholderTextColor="#888"   
       />
       <TextInput
         style={[styles.input, { height: 100 }]}
         value={description}
         onChangeText={setDescription}
         placeholder="Descripción"
-        placeholderTextColor="#aaa"
+       placeholderTextColor="#888"   
         multiline
       />
       <TextInput
@@ -73,7 +75,7 @@ export default function EditRecipeScreen({ route, navigation }) {
         value={ingredients}
         onChangeText={setIngredients}
         placeholder="Ingredientes (separados por coma)"
-        placeholderTextColor="#aaa"
+        placeholderTextColor="#888"   
         multiline
       />
       <TextInput
@@ -81,7 +83,7 @@ export default function EditRecipeScreen({ route, navigation }) {
         value={steps}
         onChangeText={setSteps}
         placeholder="Pasos (separados por coma)"
-        placeholderTextColor="#aaa"
+        placeholderTextColor="#888"   
         multiline
       />
 

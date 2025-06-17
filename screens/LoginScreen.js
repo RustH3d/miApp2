@@ -15,7 +15,9 @@ export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigation = useNavigation();
-  const API_URL = 'https://miapp2-production.up.railway.app/users/login'; // ← Ruta corregida
+/*   const API_URL = 'http://10.125.217.144:3000/users/login';  */
+const API_URL = 'https://recets-production.up.railway.app/users/login';
+
 
   const handleLogin = async () => {
     if (!email || !password) {
@@ -53,6 +55,7 @@ export default function LoginScreen() {
 
       <TextInput
         placeholder="Correo electrónico"
+        placeholderTextColor="#888"   
         style={styles.input}
         value={email}
         onChangeText={setEmail}
@@ -61,6 +64,7 @@ export default function LoginScreen() {
       />
       <TextInput
         placeholder="Contraseña"
+        placeholderTextColor="#888"   
         style={styles.input}
         value={password}
         onChangeText={setPassword}

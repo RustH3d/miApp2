@@ -27,7 +27,9 @@ export default function AddRecipeScreen({ route, navigation }) {
     const stepsArray = steps.split(',').map((s) => s.trim());
 
     try {
-      const response = await fetch('https://miapp2-production.up.railway.app/recipes', {
+    //   const response = await fetch('http://10.125.217.144:3000/recipes', {
+    const response = await fetch('https://recets-production.up.railway.app/recipes', {
+
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -60,12 +62,14 @@ export default function AddRecipeScreen({ route, navigation }) {
         value={title}
         onChangeText={setTitle}
         placeholder="Título"
+        placeholderTextColor="#888"   
       />
       <TextInput
         style={[styles.input, { height: 100 }]}
         value={description}
         onChangeText={setDescription}
         placeholder="Descripción"
+        placeholderTextColor="#888"   
         multiline
       />
       <TextInput
@@ -80,6 +84,7 @@ export default function AddRecipeScreen({ route, navigation }) {
         value={steps}
         onChangeText={setSteps}
         placeholder="Pasos (separados por coma)"
+        placeholderTextColor="#888"   
         multiline
       />
       <TouchableOpacity style={styles.button} onPress={handleAdd}>

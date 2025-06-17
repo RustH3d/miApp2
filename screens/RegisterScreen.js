@@ -14,7 +14,9 @@ export default function RegisterScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const API_URL = 'https://miapp2-production.up.railway.app/users/register'; // Asegúrate que sea tu IP local + endpoint correcto
+  // const API_URL = 'http://10.125.217.144:3000/users/register'; // Asegúrate que sea tu IP local + endpoint correcto
+  const API_URL = 'https://recets-production.up.railway.app/users/register';
+
 
   const handleRegister = async () => {
     if (!email || !password) {
@@ -52,6 +54,7 @@ export default function RegisterScreen() {
 
       <TextInput
         placeholder="Correo electrónico"
+        placeholderTextColor="#888"   
         style={styles.input}
         value={email}
         onChangeText={setEmail}
@@ -60,6 +63,7 @@ export default function RegisterScreen() {
       />
       <TextInput
         placeholder="Contraseña"
+        placeholderTextColor="#888"   
         style={styles.input}
         value={password}
         onChangeText={setPassword}

@@ -9,7 +9,9 @@ export default function RecipeDetail({ route }) {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch(`https://miapp2-production.up.railway.app/users/${recipe.user_id}`);
+        // const response = await fetch(`http://10.125.217.144:3000/users/${recipe.user_id}`);
+        const response = await fetch(`https://recets-production.up.railway.app/users/${recipe.user_id}`);
+
         const data = await response.json();
         setUser(data);
       } catch (error) {

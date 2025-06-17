@@ -21,7 +21,9 @@ export default function GroupManagerScreen({ route, navigation }) {
 
   const fetchGroups = async () => {
     try {
-      const res = await fetch(`https://miapp2-production.up.railway.app/groups/user/${userId}`);
+    //   const res = await fetch(`http://10.125.217.144:3000/groups/user/${userId}`);
+    const res = await fetch(`https://recets-production.up.railway.app/groups/user/${userId}`);
+
       const data = await res.json();
       setGroups(data);
     } catch (err) {
@@ -36,50 +38,51 @@ export default function GroupManagerScreen({ route, navigation }) {
   }, []);
 
   const handleSaveGroup = async () => {
-    if (!groupName.trim()) return Alert.alert('Error', 'El nombre no puede estar vacío');
+  if (!groupName.trim()) return Alert.alert('Error', 'El nombre no puede estar vacío');
 
-    try {
-      const method = selectedGroupId ? 'PUT' : 'POST';
-      const url = selectedGroupId
-        ? `https://miapp2-production.up.railway.app/groups/${selectedGroupId}`
-        : 'https://miapp2-production.up.railway.app/groups';
+  try {
+    const method = selectedGroupId ? 'PUT' : 'POST';
+    const url = selectedGroupId
+      ? `https://recets-production.up.railway.app/groups/${selectedGroupId}`
+      : 'https://recets-production.up.railway.app/groups';
 
-      const res = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: groupName, user_id: userId }),
-      });
+    const res = await fetch(url, {
+      method,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: groupName, user_id: userId }),
+    });
 
-      if (!res.ok) throw new Error('Error en la operación');
+    if (!res.ok) throw new Error('Error en la operación');
 
-      setModalVisible(false);
-      setGroupName('');
-      setSelectedGroupId(null);
-      fetchGroups();
-    } catch (err) {
-      Alert.alert('Error', 'No se pudo guardar el grupo');
-    }
-  };
+    setModalVisible(false);
+    setGroupName('');
+    setSelectedGroupId(null);
+    fetchGroups();
+  } catch (err) {
+    Alert.alert('Error', 'No se pudo guardar el grupo');
+  }
+};
 
-  const handleDelete = async (id) => {
-    Alert.alert('Confirmar', '¿Eliminar este grupo?', [
-      { text: 'Cancelar', style: 'cancel' },
-      {
-        text: 'Eliminar',
-        onPress: async () => {
-          try {
-            await fetch(`https://miapp2-production.up.railway.app/groups/${id}`, {
-              method: 'DELETE',
-            });
-            fetchGroups();
-          } catch (err) {
-            Alert.alert('Error', 'No se pudo eliminar');
-          }
-        },
-        style: 'destructive',
+const handleDelete = async (id) => {
+  Alert.alert('Confirmar', '¿Eliminar este grupo?', [
+    { text: 'Cancelar', style: 'cancel' },
+    {
+      text: 'Eliminar',
+      onPress: async () => {
+        try {
+          await fetch(`https://recets-production.up.railway.app/groups/${id}`, {
+            method: 'DELETE',
+          });
+
+          fetchGroups();
+        } catch (err) {
+          Alert.alert('Error', 'No se pudo eliminar');
+        }
       },
-    ]);
-  };
+      style: 'destructive',
+    },
+  ]);
+};
 
   const openEdit = (group) => {
     setGroupName(group.name);
@@ -144,7 +147,7 @@ export default function GroupManagerScreen({ route, navigation }) {
             </Text>
             <TextInput
               placeholder="Nombre del grupo"
-              placeholderTextColor="#aaa"
+              placeholderTextColor="#888"   
               style={styles.input}
               value={groupName}
               onChangeText={setGroupName}

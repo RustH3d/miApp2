@@ -11,10 +11,10 @@ const pg = require('pg');
   port: 5432,
 });  */
 
- const pool= new pool({
+ /* const pool= new pool({
     connectionString: process.env.DATABASE_URL,
     ssl: process.env.NODE_ENV==='production'
-}) 
+})  */
 
 
 
@@ -26,6 +26,18 @@ const pg = require('pg');
   },
 });
  */
+
+require("dotenv").config();
+const { Pool } = require("pg");
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
+
+module.exports = pool;
 
 
 module.exports = pool;
